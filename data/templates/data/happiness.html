@@ -1,0 +1,36 @@
+<head>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static "data/styles.css"%}" />
+	<link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div class="container">
+	<div class="header">
+	<div class="title">reporter</div>
+	<div class="nav">
+		<div><a href="/data/">all</a></div>
+		<div><a href="/data/happiness/">happiness</a></div>
+		<div><a href="/data/sleep/">sleep</a></div>
+	</div>
+	</div>
+<div class="journal">
+{% if day_log %}
+		{% for d in day_log %}
+		<div class="headings">{{ d.day }}</div>
+		<div class="happy">
+			{% for h in d.happy_list %}
+			{{ h }}<br>
+			{% endfor %}
+		</div>
+		<div class="unhappy">
+			{% for u in d.sad_list %}
+			{{ u }}<br>
+			{% endfor %}
+		</div>
+		{% endfor %}
+{% else %}
+	<p> nothing available </p>
+{% endif %}
+	</div>
+</div>
+</body>

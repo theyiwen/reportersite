@@ -1,0 +1,47 @@
+<head>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static "data/styles.css"%}" />
+	<link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<div class="title">reporter</div>
+<div class="nav">
+	<div><a href="/data/">all</a></div>
+	<div><a href="/data/happiness/">happiness</a></div>
+	<div><a href="/data/sleep/">sleep</a></div>
+</div>
+</div>
+<table>
+<tr class="headings">
+<td>Date</td>
+<td>Sleep</td>
+<td>Paleo</td>
+<td>GF</td>
+<td>Happy</td>
+<td>Exercise</td>
+
+
+</tr>
+{% if day_log %}
+		{% for d in day_log %}
+		<tr class="data">
+			<td>{{ d.day }}</td>
+			<td>{{ d.sleep }}</td>
+			<td>{{ d.p_score }}</td>
+			<td>{{ d.g_score }}</td>
+			<td>{{ d.h_score }}</td>
+			<td>
+				{% for e in d.exercise_list %}
+				{{ e }}<br>
+				{% endfor %}
+			</td>
+		</tr>
+		{% endfor %}
+{% else %}
+	<p> nothing available </p>
+{% endif %}
+</table>
+</div>
+</body>
