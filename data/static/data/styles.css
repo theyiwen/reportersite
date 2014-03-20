@@ -108,17 +108,32 @@ td {
 }
 
 .chart {
-  padding: 50px;
+  border: solid 1px grey;
+  margin: 10px 50px;
+  height: 360px;
+  width: 450px;
+  display: inline-block;
 }
+
 .chart div {
-  font: 10px sans-serif;
   width: 10px;
-  background-color: #3399CC;
+  background-color: lightblue;
   text-align: right;
-  padding: 3px;
-  margin: 1px;
+  margin: 0px 5px 0px 0px;
   display: inline-block;
   position: relative;
 }
 
+.avgsleep {
+	display: inline-block;
+}
 
+.avgsleep .label {
+	font: 40px "Quicksand";
+	color: #666;
+}
+
+.avgsleep .value {
+	font: 100px "Quicksand";
+	color: #3399CC;
+}
