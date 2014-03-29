@@ -110,7 +110,7 @@ td {
 .chart {
   border: solid 1px grey;
   margin: 10px 50px;
-  height: 360px;
+  height: 720px;
   width: 450px;
   display: inline-block;
 }

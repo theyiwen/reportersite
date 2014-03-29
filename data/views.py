@@ -42,6 +42,17 @@ def calculate_sleep(s):
 		return str(round(bed_hours,1)) + " (" + str(s.hours_napped) +")"
 	return round(bed_hours,1)
 	
+def sleep_array():
+	sleep = Sleep.objects.all()
+	sleep_array = [[0,24]]
+	for i in range(0,29):
+		s = sleep[i]
+		bed_hours = duration(s.time_slept,s.time_awake)
+		time_slept = (s.time_slept.hour+s.time_slept.minute/float(60) + 6) % 24 # start at 6pm
+		sleep_array.append([time_slept, bed_hours])	
+	return sleep_array
+	
+	
 def duration(start,end):
     startdelta=datetime.timedelta(hours=start.hour,minutes=start.minute,seconds=start.second)
     enddelta=datetime.timedelta(hours=end.hour,minutes=end.minute,seconds=end.second)
@@ -64,6 +75,7 @@ def happiness(request):
 def sleep(request):
 	template = loader.get_template('data/sleep.html')
 	context = RequestContext(request, {
-		'day_log' : get_day_list()
+		'day_log' : get_day_list(),
+		'sleep_array' : sleep_array()
 	})
 	return HttpResponse(template.render(context))
