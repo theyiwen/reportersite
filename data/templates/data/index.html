@@ -5,43 +5,54 @@
 </head>
 <body>
 <div class="container">
-<div class="header">
-<div class="title">reporter</div>
-<div class="nav">
+<div class="top_bar_container">
+<div class="top_nav">
+<div class="title">yiwen's report</div>
+<div class="link_nav">
+	<div><a href="/data/edit/{{ today_str }}">edit</a></div>
+	<div><a href="/data/summary">summary</a></div>
 	<div><a href="/data/">all</a></div>
-	<div><a href="/data/happiness/">happiness</a></div>
-	<div><a href="/data/sleep/">sleep</a></div>
 </div>
 </div>
-<table>
-<tr class="headings">
-<td>Date</td>
-<td>Sleep</td>
-<td>Paleo</td>
-<td>GF</td>
-<td>Happy</td>
-<td>Exercise</td>
-
-
-</tr>
+</div>
+<div class="data_container">
+<div class="data_row">
+<div class="header data">day</div>
+<div class="header data">sleep</div>
+<div class="header data">eat</div>
+<div class="header data">sweat</div>
+<div class="header data">hs</div>
+<div class="header data">happy</div>
+<div class="header data">unhappy</div>
+</div>
 {% if day_log %}
 		{% for d in day_log %}
-		<tr class="data">
-			<td>{{ d.day }}</td>
-			<td>{{ d.sleep }}</td>
-			<td>{{ d.p_score }}</td>
-			<td>{{ d.g_score }}</td>
-			<td>{{ d.h_score }}</td>
-			<td>
+		<div class="data_row">
+			<div class="day data">{{ d.day }}</div>
+			<div class="sleep data">{{ d.sleep }}</div>
+			<div class="food data">{{ d.p_score }}, {{ d.g_score }}</div>
+			<div class="exercise data">
 				{% for e in d.exercise_list %}
 				{{ e }}<br>
 				{% endfor %}
-			</td>
-		</tr>
+			</div>
+			<div class="hs data">{{ d.h_score }}</div>
+			<div class="happy data">
+				{% for h in d.happy_list %}
+				{{ h }}<br>
+				{% endfor %}
+			</div>
+			<div class="unhappy data">
+				{% for u in d.sad_list %}
+				{{ u }}<br>
+				{% endfor %}
+			</div>
+		</div>
 		{% endfor %}
 {% else %}
 	<p> nothing available </p>
 {% endif %}
-</table>
+
+</div>
 </div>
 </body>

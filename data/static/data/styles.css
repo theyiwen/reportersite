@@ -1,5 +1,4 @@
 /* START Reset CSS */
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -43,23 +42,246 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
 /* END Reset CSS */
 
+.container {
+}
+
 html body { 
-	font: 18px "Helvetica";
-	color: #666;
+	font: 18px "HelveticaNeue-Light";
+	color: #979797;
+	line-height: 1.4;
 	}
 	
+
+.header {
+	font: 30px "HelveticaNeue-Light";
+	color: #979797;
+}
+
+.label {
+	font: 18px "HelveticaNeue-Light";
+	padding: 20px 0px 10px 0px;
+}
+
+.data_point {
+	font: 36px "Quicksand";	
+/*	color: #9DD366;
+*/}
+
 .title {
-	font: 40px "Quicksand";		
-	text-align: left;
-	padding: 10px 20px 30px 20px;
+	font: 40px "Quicksand";	
+	float: left;
+	line-height: 50px;
+	color: #fff;
+/*	position:absolute;
+	left:0;
+	bottom:0;*/
+}
+
+.top_nav {
+	position: relative;
+	padding: 20px 40px;
+	min-width: 600px;
+	overflow: hidden;
+}
+
+.link_nav {
+	float: right;
+	line-height: 50px;
+/*	position: absolute;
+	right:0;
+	bottom:0;*/
+}
+
+.link_nav div{
+	font: 20px "Quicksand";
+	margin:0px 15px;
+	color: #fff;
+}
+
+.link_nav a:link, .link_nav a:visited {
+	text-decoration: none;
+	color: #fff;
+}
+
+a:link,a:visited {
+    text-decoration:none;
+    color:#ccc;
+}
+
+.top_nav div {
+	display: inline-block;
+}
+
+.top_bar_container {
+	background: #4d4d4d;
 }
 
 
+.data_container {
+	display:table;
+	padding: 0px 40px;
+	margin-top: 20px;
+}
 
-table {
+.data_row {
+	display: table-row;
+}
+
+.data {
+	display:table-cell;
+	padding:10px 20px 10px 0px;
+}
+
+.data.day {
+	min-width:125px;
+	width:125px;
+}
+
+.data.sleep {
+	min-width:250px;
+	width:250px;
+}
+
+.data.food, data.hs{
+	min-width:75px;
+	width:75px;
+}
+
+.data.exercise {
+	min-width:125px;
+	width:125px;
+}
+
+.data.happy, .data.unhappy {
+	min-width:350px;
+	width:350px;
+}
+
+.summary_container {
+	display:block;
+	width:1000px;
+	margin-left:auto;
+	margin-right:auto;
+	padding-top:20px;
+}
+.summary_container div {
+}
+
+.sleep_container, .food_container, .exercise_container, .happiness_container {
+	width:250px;
+	height:500px;
+	margin-right:-6px;
+	overflow: hidden;
+	display: inline-block;	
+}
+
+.good_text {
+	color: #9DD366;
+}
+
+.bad_text {
+	color: #FFA8A8;
+}
+
+.ok_text {
+	color: #FCB14A;
+}
+
+input, textarea { 
+    padding: 9px; 
+    border: solid 0px #E5E5E5; 
+    border-bottom: solid 1px #ccc;
+    outline: 0; 
+    font: normal 13px/100% HelveticaNeue-Light, Verdana, Tahoma, sans-serif; 
+    width: 200px; 
+    background: #FFFFFF; 
+    } 
+   
+textarea { 
+    width: 400px; 
+    max-width: 400px; 
+    height: 150px; 
+    line-height: 150%; 
+    } 
+   
+input:hover, textarea:hover, 
+input:focus, textarea:focus { 
+    border-color: #C9C9C9; 
+    } 
+   
+.submit input { 
+    width: 300px; 
+    padding: 9px 15px; 
+    background: #4d4d4d; 
+    border: 0; 
+    font-size: 18px; 
+    color: #FFFFFF; 
+    }
+
+.date_nav {
+    width:220px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form_container {
+    width:300px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow:hidden;
+}
+
+.happy_field input, .unhappy_field input {
+    width:300px;
+}
+
+.exercise_field div{
+    display:inline-block;
+}
+
+.exercise_field {
+    line-height: 50px;
+}
+
+.exercise_field div input {
+    width:100px;
+}
+
+.sleep_field, .food_field, .hs_field {
+    position:relative;
+    height: 50px;
+    line-height: 50px;
+}
+.sleep_field input, .food_field input, .hs_field input {
+    position:absolute;
+    right:0;
+    width:175px;
+/*    float:right;
+*/}
+/*
+
+.journal {
+	padding: 0px 20px;
+}*/
+
+/*.day {
+	font: 25px "Quicksand";
+	color: #3399CC;
+}*/
+
+/*.happy {
+	color: #666;
+	line-height: 1.5em;
+}*/
+/*
+.unhappy {
+	color: #A0A0A0;
+	line-height: 1.5em;
+}*/
+
+/*table {
 }
 
 td {
@@ -67,45 +289,9 @@ td {
 	min-width:50px;
 	line-height:1.5em;
 	vertical-align: top;
-}
-
-.nav div{
-	font: 20px "Quicksand";
-	margin:0px 15px;
-}
-
-.nav a:link,a:visited {
-	text-decoration: none;
-	color: #666;
-}
-
-.header div {
-	display: inline-block;
-}
-.headings {
-	font: 25px "Quicksand";
-	color: #3399CC;
-	padding: 20px 0px 5px 0px;
-}
-
-.journal {
-	padding: 0px 20px;
-}
-
-.day {
-	font: 25px "Quicksand";
-	color: #3399CC;
-}
-
-.happy {
-	color: #666;
-	line-height: 1.5em;
-}
-
-.unhappy {
-	color: #A0A0A0;
-	line-height: 1.5em;
-}
+	white-space: nowrap;
+  
+}*/
 
 .chart {
   border: solid 1px grey;

@@ -1,0 +1,54 @@
+<head>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static "data/styles.css"%}" />
+	<link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div class="container">
+<div class="top_bar_container">
+<div class="top_nav">
+<div class="title">yiwen's report</div>
+<div class="link_nav">
+	<div><a href="/data/edit/{{ today_str }}">edit</a></div>
+	<div><a href="/data/summary">summary</a></div>
+	<div><a href="/data/">all</a></div>
+</div>
+</div>
+</div>
+<div class="header date_nav"><a href="/data/edit/{{day_before_str}}"><</a>
+{{ current_day }}
+<a href="/data/edit/{{day_after_str}}">></a>
+</div>
+<div class="form_container">
+<form action="" method="post"> {% csrf_token %}
+
+	<div class="sleep_field"><label>SLEPT</label>{{ sleep_form.time_slept }}</div>
+	<div class="sleep_field"><label>AWAKE</label>{{ sleep_form.time_awake }}</div>
+	<div class="sleep_field"><label>NAPPED</label>{{ sleep_form.hours_napped }}</div>
+	<div class="food_field"><label>P SCORE</label>{{ food_form.p_score }}</div>
+	<div class="food_field"><label>G SCORE</label>{{ food_form.g_score }}</div>
+	<div class="hs_field"><label>HS</label>{{ hs_form.score }}</div>
+	
+	<div class="exercise_field">
+	<label>EXERCISE</label><br>
+	{{ exercise_formset.management_form }}
+	{% for form in exercise_formset %}
+	{{ form.id }}
+	<div class="exercise_type_field">{{ form.exercise_type }}</div> <div class="exercise_time_field">{{ form.exercise_time}}</div>
+	{% endfor %}</div>
+	<label>HAPPY</label>
+	{{ happy_formset.management_form }}
+	{% for form in happy_formset %}
+	{{ form.id }}
+	<div class="happy_field">{{ form.text }}<br></div>
+	{% endfor %}
+	<label>UNHAPPY</label><br>
+	{{ unhappy_formset.management_form }}
+	{% for form in unhappy_formset %}
+	{{ form.id }}
+	<div class="unhappy_field">{{ form.text }}<br></div>
+	{% endfor %}
+
+<br>
+<div class="submit"><input type="submit" value ="Submit" /></div>
+</form></div> 
