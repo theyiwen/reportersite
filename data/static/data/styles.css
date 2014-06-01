@@ -42,72 +42,63 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-/* END Reset CSS */
+/* ============================== END Reset CSS ============================== */
+
+
+/* ============================== Basics ============================== */
 
 .container {
+    padding: 0px 40px;
 }
 
 html body { 
 	font: 18px "HelveticaNeue-Light";
 	color: #979797;
 	line-height: 1.4;
-	}
-	
-
-.header {
-	font: 30px "HelveticaNeue-Light";
-	color: #979797;
 }
-
-.label {
-	font: 18px "HelveticaNeue-Light";
-	padding: 20px 0px 10px 0px;
+	
+.header {
+	font: 30px "Quicksand";
+	color: #5A5A5A;
 }
 
 .data_point {
 	font: 36px "Quicksand";	
-/*	color: #9DD366;
-*/}
+}
+
+/* ============================== Nav ============================== */
+
+.top_nav {
+	padding: 20px 0px;
+	overflow: hidden;
+	min-width:800px;
+}
 
 .title {
 	font: 40px "Quicksand";	
 	float: left;
 	line-height: 50px;
-	color: #fff;
-/*	position:absolute;
-	left:0;
-	bottom:0;*/
-}
-
-.top_nav {
-	position: relative;
-	padding: 20px 40px;
-	min-width: 600px;
-	overflow: hidden;
+	color: #5A5A5A;
 }
 
 .link_nav {
-	float: right;
-	line-height: 50px;
-/*	position: absolute;
-	right:0;
-	bottom:0;*/
+	line-height: 65px;
 }
 
 .link_nav div{
 	font: 20px "Quicksand";
-	margin:0px 15px;
-	color: #fff;
+	margin:0px 0px 0px 40px;
+	color: #5A5A5A;
 }
 
 .link_nav a:link, .link_nav a:visited {
 	text-decoration: none;
-	color: #fff;
+	color: #5A5A5A;
 }
 
 a:link,a:visited {
     text-decoration:none;
-    color:#ccc;
+    color:#5A5A5A;
 }
 
 .top_nav div {
@@ -115,18 +106,23 @@ a:link,a:visited {
 }
 
 .top_bar_container {
-	background: #4d4d4d;
-}
+/*  background: #4d4d4d;
+*/}
+
+
 
 
 .data_container {
 	display:table;
-	padding: 0px 40px;
-	margin-top: 20px;
 }
 
 .data_row {
 	display: table-row;
+}
+
+.header_row {
+    display: table-row;
+    background: #F7F7F7;
 }
 
 .data {
@@ -161,20 +157,28 @@ a:link,a:visited {
 
 .summary_container {
 	display:block;
-	width:1000px;
-	margin-left:auto;
-	margin-right:auto;
-	padding-top:20px;
-}
+	width:1280px;
+/*  margin-left:auto;
+    margin-right:auto;*/
+/*  padding-top:20px;
+*/}
 .summary_container div {
 }
 
 .sleep_container, .food_container, .exercise_container, .happiness_container {
-	width:250px;
-	height:500px;
-	margin-right:-6px;
-	overflow: hidden;
+/*  width:250px;
+    height:500px;
+    margin-right:-6px;*/
+	width:230px;
+    height:350px;
+    background: #F7F7F7;
+    margin-right: 15px;
+    overflow: hidden;
 	display: inline-block;	
+}
+
+.grid {
+    padding: 0px 10px;
 }
 
 .good_text {
@@ -187,6 +191,21 @@ a:link,a:visited {
 
 .ok_text {
 	color: #FCB14A;
+}
+
+.small_text {
+    font: 26px "Quicksand";
+}
+
+.label {
+	font: 18px "HelveticaNeue-Light";
+	padding: 20px 0px 10px 0px;
+}
+
+/* ============================== Edit ============================== */
+
+.all_container {
+    
 }
 
 input, textarea { 
@@ -218,108 +237,65 @@ input:focus, textarea:focus {
     border: 0; 
     font-size: 18px; 
     color: #FFFFFF; 
+    display: none;
     }
+    
+
+
+
+.entry {
+    display:table-cell;
+    padding-left:20px;
+}
+
 
 .date_nav {
-    width:220px;
-    margin-left: auto;
-    margin-right: auto;
+    width:380px;
+    margin-bottom:20px;
+    background: #F7F7F7;
+    text-align:center;
+    padding: 10px 15px;
+}
+
+.back_link {
+    float:left;
+}
+
+.forward_link {
+    float:right;
 }
 
 .form_container {
-    width:300px;
-    margin-left: auto;
-    margin-right: auto;
+    width:500px;
     overflow:hidden;
+    display: table;
 }
 
-.happy_field input, .unhappy_field input {
+.happy_field input, .unhappy_field input, .happy_empty_field input {
     width:300px;
 }
 
-.exercise_field div{
-    display:inline-block;
+.exercise_field div input, .exercise_empty_field div input {
+    width:80px;
+    margin-right:10px;
 }
 
-.exercise_field {
-    line-height: 50px;
-}
-
-.exercise_field div input {
-    width:100px;
-}
-
-.sleep_field, .food_field, .hs_field {
-    position:relative;
+.sleep_field, .food_field, .hs_field, .exercise_field, .happy_field, .unhappy_field {
     height: 50px;
     line-height: 50px;
+    display:table-row;
 }
+
+.empty_label {
+    display:table-cell;
+    width:10px;
+}
+
+.exercise_empty_field, .happy_empty_field {
+    display:table-row;
+}
+
 .sleep_field input, .food_field input, .hs_field input {
-    position:absolute;
-    right:0;
     width:175px;
-/*    float:right;
-*/}
-/*
-
-.journal {
-	padding: 0px 20px;
-}*/
-
-/*.day {
-	font: 25px "Quicksand";
-	color: #3399CC;
-}*/
-
-/*.happy {
-	color: #666;
-	line-height: 1.5em;
-}*/
-/*
-.unhappy {
-	color: #A0A0A0;
-	line-height: 1.5em;
-}*/
-
-/*table {
 }
 
-td {
-	padding: 10px 20px;
-	min-width:50px;
-	line-height:1.5em;
-	vertical-align: top;
-	white-space: nowrap;
-  
-}*/
-
-.chart {
-  border: solid 1px grey;
-  margin: 10px 50px;
-  height: 720px;
-  width: 450px;
-  display: inline-block;
-}
-
-.chart div {
-  width: 10px;
-  background-color: lightblue;
-  text-align: right;
-  margin: 0px 5px 0px 0px;
-  display: inline-block;
-  position: relative;
-}
-
-.avgsleep {
-	display: inline-block;
-}
-
-.avgsleep .label {
-	font: 40px "Quicksand";
-	color: #666;
-}
-
-.avgsleep .value {
-	font: 100px "Quicksand";
-	color: #3399CC;
-}

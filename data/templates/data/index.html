@@ -16,8 +16,8 @@
 </div>
 </div>
 <div class="data_container">
-<div class="data_row">
-<div class="header data">day</div>
+<div class="header_row">
+<div class="header data">&nbsp;day</div>
 <div class="header data">sleep</div>
 <div class="header data">eat</div>
 <div class="header data">sweat</div>
@@ -28,7 +28,7 @@
 {% if day_log %}
 		{% for d in day_log %}
 		<div class="data_row">
-			<div class="day data">{{ d.day }}</div>
+			<div class="day data">&nbsp;{{ d.day }}</div>
 			<div class="sleep data">{{ d.sleep }}</div>
 			<div class="food data">{{ d.p_score }}, {{ d.g_score }}</div>
 			<div class="exercise data">

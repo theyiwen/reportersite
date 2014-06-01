@@ -15,40 +15,49 @@
 </div>
 </div>
 </div>
-<div class="header date_nav"><a href="/data/edit/{{day_before_str}}"><</a>
+<div class="all_container">
+<div class="header date_nav">
+<a class="back_link" href="/data/edit/{{day_before_str}}"><</a>
 {{ current_day }}
-<a href="/data/edit/{{day_after_str}}">></a>
+<a class="forward_link" href="/data/edit/{{day_after_str}}">></a>
 </div>
 <div class="form_container">
 <form action="" method="post"> {% csrf_token %}
 
-	<div class="sleep_field"><label>SLEPT</label>{{ sleep_form.time_slept }}</div>
-	<div class="sleep_field"><label>AWAKE</label>{{ sleep_form.time_awake }}</div>
-	<div class="sleep_field"><label>NAPPED</label>{{ sleep_form.hours_napped }}</div>
-	<div class="food_field"><label>P SCORE</label>{{ food_form.p_score }}</div>
-	<div class="food_field"><label>G SCORE</label>{{ food_form.g_score }}</div>
-	<div class="hs_field"><label>HS</label>{{ hs_form.score }}</div>
-	
+	<div class="sleep_field"><label>SLEPT</label><div class="entry">{{ sleep_form.time_slept }}</div></div>
+	<div class="sleep_field"><label>AWAKE</label><div class="entry">{{ sleep_form.time_awake }}</div></div>
+	<div class="sleep_field"><label>NAPPED</label><div class="entry">{{ sleep_form.hours_napped }}</div></div>
+	<div class="food_field"><label>P SCORE</label><div class="entry">{{ food_form.p_score }}</div></div>
+	<div class="food_field"><label>G SCORE</label><div class="entry">{{ food_form.g_score }}</div></div>
+	<div class="hs_field"><label>HS</label><div class="entry">{{ hs_form.score }}</div></div>
 	<div class="exercise_field">
-	<label>EXERCISE</label><br>
+	<label>EXERCISE</label>
 	{{ exercise_formset.management_form }}
 	{% for form in exercise_formset %}
 	{{ form.id }}
-	<div class="exercise_type_field">{{ form.exercise_type }}</div> <div class="exercise_time_field">{{ form.exercise_time}}</div>
+	<div class="entry">{{ form.exercise_type }} {{ form.exercise_time}}</div></div>
+	<div class="exercise_empty_field"><div class="empty_label"></div>
 	{% endfor %}</div>
+	
+	<div class="happy_field">
 	<label>HAPPY</label>
 	{{ happy_formset.management_form }}
 	{% for form in happy_formset %}
 	{{ form.id }}
-	<div class="happy_field">{{ form.text }}<br></div>
-	{% endfor %}
-	<label>UNHAPPY</label><br>
+	<div class="entry">{{ form.text }}</div></div>
+	<div class="happy_empty_field"><div class="empty_label"></div>
+	{% endfor %}</div>
+	
+	<div class="unhappy_field">
+	<label>UNHAPPY</label>
 	{{ unhappy_formset.management_form }}
 	{% for form in unhappy_formset %}
 	{{ form.id }}
-	<div class="unhappy_field">{{ form.text }}<br></div>
-	{% endfor %}
+	<div class="entry">{{ form.text }}</div></div>
+	<div class="happy_empty_field"><div class="empty_label"></div>
+	{% endfor %}</div>
 
 <br>
 <div class="submit"><input type="submit" value ="Submit" /></div>
 </form></div> 
+</div>

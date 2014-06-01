@@ -20,40 +20,45 @@
 
 <div class="summary_container">
 	<div class="sleep_container">
+		<div class="grid">
 		<div class="header data">sleep</div>
 		<div class="label ">HOURS SLEPT</div>
 		<div class="data_point {{ sleep_summary.css_hours }}">{{ sleep_summary.avg_hours_slept }}</div>
 		<div class="label">TIME IN BED</div>
 		<div class="data_point ">{{ sleep_summary.avg_time_in_bed}}</div>
-		
+		</div>
 		
 	</div>
 	<div class="food_container">
+		<div class="grid">
 		<div class="header data">eat</div>
 		<div class="label">PALEO</div>
 		<div class="data_point {{ food_summary.p_grade }}">{{ food_summary.p_percent }}</div>
 		<div class="label">GLUTEN FREE</div>
 		<div class="data_point {{ food_summary.g_grade }}">{{ food_summary.g_percent }}</div>
-		
+		</div>
 	</div>
 	<div class="exercise_container">
+		<div class="grid">
 		<div class="header data">sweat</div>
 		<div class="label">DAYS I SWEAT</div>
 		<div class="data_point {{ exercise_summary.day_grade }}">{{ exercise_summary.days}}</div>
 		<div class="label">TYPES</div>
-		<div class="data_point">
+		<div class="small_text">
 			{% for t in exercise_summary.types %}
 			{{ t }}<br>
 			{% endfor %}
 		</div>
+		</div>
 	</div>
 	<div class="happiness_container">
+		<div class="grid">
 		<div class="header data">happiness</div>
 		<div class="label">SCORE</div>
 		<div class="data_point {{ happy_summary.happy_grade }}">{{ happy_summary.avg_hs}}</div>
 		<div class="label">MOMENT</div>
-		<div class="data_point">{{ happy_summary.rand_happiness }}</div>
-		
+		<div class="small_text">{{ happy_summary.rand_happiness }}</div>
+		</div>
 	</div>
 </div>
 
