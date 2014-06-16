@@ -1,4 +1,4 @@
-/* START Reset CSS */
+/* ============================== START Reset CSS ============================== */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -62,8 +62,10 @@ html body {
 	color: #5A5A5A;
 }
 
-.data_point {
-	font: 36px "Quicksand";	
+
+a:link,a:visited {
+    text-decoration:none;
+    color:#5A5A5A;
 }
 
 /* ============================== Nav ============================== */
@@ -81,6 +83,10 @@ html body {
 	color: #5A5A5A;
 }
 
+.top_nav div {
+	display: inline-block;
+}
+
 .link_nav {
 	line-height: 65px;
 }
@@ -92,29 +98,16 @@ html body {
 }
 
 .link_nav a:link, .link_nav a:visited {
-	text-decoration: none;
-	color: #5A5A5A;
+    text-decoration: none;
+    color: #5A5A5A;
 }
 
-a:link,a:visited {
-    text-decoration:none;
-    color:#5A5A5A;
-}
-
-.top_nav div {
-	display: inline-block;
-}
-
-.top_bar_container {
-/*  background: #4d4d4d;
-*/}
-
-
-
+/* ============================== Data View ============================== */
 
 .data_container {
 	display:table;
 }
+
 
 .data_row {
 	display: table-row;
@@ -155,30 +148,29 @@ a:link,a:visited {
 	width:350px;
 }
 
+/* ============================== Summary View ============================== */
+
 .summary_container {
 	display:block;
 	width:1280px;
-/*  margin-left:auto;
-    margin-right:auto;*/
-/*  padding-top:20px;
-*/}
+}
+
 .summary_container div {
 }
 
+
+.data_point {
+	font: 36px "Quicksand";	
+}
+
 .sleep_container, .food_container, .exercise_container, .happiness_container {
-/*  width:250px;
-    height:500px;
-    margin-right:-6px;*/
-	width:230px;
+	width:200px;
     height:350px;
     background: #F7F7F7;
     margin-right: 15px;
     overflow: hidden;
 	display: inline-block;	
-}
-
-.grid {
-    padding: 0px 10px;
+	padding: 0px 15px;
 }
 
 .good_text {
@@ -204,18 +196,15 @@ a:link,a:visited {
 
 /* ============================== Edit ============================== */
 
-.all_container {
-    
-}
-
 input, textarea { 
     padding: 9px; 
-    border: solid 0px #E5E5E5; 
+    border: solid 0px #FFFFFF; 
     border-bottom: solid 1px #ccc;
-    outline: 0; 
-    font: normal 13px/100% HelveticaNeue-Light, Verdana, Tahoma, sans-serif; 
-    width: 200px; 
+    border-bottom-color: #ccc;
+    font: normal 13px/100% "HelveticaNeue-Light"; 
     background: #FFFFFF; 
+    color: #5A5A5A;
+    outline: none;
     } 
    
 textarea { 
@@ -227,7 +216,7 @@ textarea {
    
 input:hover, textarea:hover, 
 input:focus, textarea:focus { 
-    border-color: #C9C9C9; 
+
     } 
    
 .submit input { 
@@ -240,14 +229,10 @@ input:focus, textarea:focus {
     display: none;
     }
     
-
-
-
 .entry {
     display:table-cell;
     padding-left:20px;
 }
-
 
 .date_nav {
     width:380px;
@@ -298,4 +283,3 @@ input:focus, textarea:focus {
 .sleep_field input, .food_field input, .hs_field input {
     width:175px;
 }
-

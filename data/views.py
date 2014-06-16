@@ -7,6 +7,7 @@ from django.forms.models import modelformset_factory
 import datetime
 from random import randint
 import calendar
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 #CSS
@@ -69,9 +70,21 @@ def get_sleep_summary():
 		css_hours = OK
 	else:
 		css_hours = BAD
+		
+	if time_in_bed < datetime.time(1,0):
+	    css_time = GOOD
+	elif time_in_bed < datetime.time(2,0):
+	    css_time = OK
+	elif time_in_bed >= datetime.time(2,0) and time_in_bed < datetime.time(12,0):
+	    css_time = BAD
+	else:
+	    css_time = GOOD
+	
 	return {'avg_hours_slept': hours_slept,
 			'avg_time_in_bed': time_in_bed, 
-			'css_hours' : css_hours}
+			'css_hours' : css_hours,
+			'css_time' : css_time
+			}
 
 def get_food_summary():
 	last_week = [d.date for d in last_n_days(7)]
@@ -259,6 +272,7 @@ def percent_healthy_meals(food_scores):
 # 	return duration(s.time_slept,s.time_awake) + float(s.hours_napped)
 
 # pages
+@login_required	
 def index(request):
 	template = loader.get_template('data/index.html')
 	context = RequestContext(request, {
@@ -282,6 +296,7 @@ def sleep(request):
 	})
 	return HttpResponse(template.render(context))
 
+@login_required	
 def summary(request):
 	template = loader.get_template('data/summary.html')
 	context = RequestContext(request, {
@@ -293,7 +308,8 @@ def summary(request):
 		'today_str' : get_today_str()
 	})
 	return HttpResponse(template.render(context))
-	
+
+@login_required	
 def edit(request,date):
 	try:
 		formatted_date = date[0:4]+'-'+date[4:6]+'-'+date[6:]

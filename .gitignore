@@ -1,3 +1,6 @@
 test/
 *.sqlite3
 .DS_Store
+reportersite/local_settings.py
+*.pyc
+myenv/

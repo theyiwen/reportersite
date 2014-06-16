@@ -20,11 +20,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'z@po1vvzd@q*$y$30a^f@@$%cg77r#sb_hn4g4=72)ecl8h5o5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+
 
 
 # Application definition
@@ -37,8 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'data',
-		'south',
-		'widget_tweaks'
+	'south',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -60,10 +61,22 @@ WSGI_APPLICATION = 'reportersite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        # 'NAME': 'reporter_data',
+        # 'USER':'',
+        # 'PASSWORD':'',
+        # 'LOCAL':'',
+        # 'PORT':'5432',
     }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # }
 }
+
+TEMPLATE_DIRS = (
+    'reportersite/templates'
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
@@ -85,3 +98,14 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 APPEND_SLASH= True
+
+import dj_database_url
+
+DATABASES = { 'default': dj_database_url.config() }
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO','https')
+
+try:
+    from local_settings import *
+except Exception as e:
+    pass
