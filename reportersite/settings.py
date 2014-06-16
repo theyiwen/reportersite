@@ -17,8 +17,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 
-'z@po1vvzd@q*$y$30a^f@@$%cg77r#sb_hn4g4=72)ecl8h5o5'
+SECRET_KEY = '=)_5o0*k9*%ja=j1fmfrr2p7#vdhf-@zcypm0g&6qge!kn_f)h'
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
@@ -103,6 +103,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(PROJECT_PATH, 'static'),
 )
+
 APPEND_SLASH= True
 
 import dj_database_url
