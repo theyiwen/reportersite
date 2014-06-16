@@ -101,7 +101,7 @@ STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    os.path.join(PROJECT_PATH, 'data/static/data'),
+    # os.path.join(PROJECT_PATH, 'data/static/data/'),
 )
 
 APPEND_SLASH= True
