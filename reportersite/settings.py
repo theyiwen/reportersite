@@ -17,8 +17,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'z@po1vvzd@q*$y$30a^f@@$%cg77r#sb_hn4g4=72)ecl8h5o5'
-
+SECRET_KEY = 
+'z@po1vvzd@q*$y$30a^f@@$%cg77r#sb_hn4g4=72)ecl8h5o5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
@@ -96,8 +96,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
+PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_PATH, 'static'),
+)
 APPEND_SLASH= True
 
 import dj_database_url
@@ -106,7 +111,6 @@ DATABASES = { 'default': dj_database_url.config() }
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO','https')
 
-STATIC_ROOT = ''
 
 try:
     from local_settings import *
@@ -114,11 +118,13 @@ except Exception as e:
     pass
     
 if not DEBUG:
-    AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
-    AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
-    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
-    STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-    S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
-    STATIC_URL = S3_URL
+    # AWS_STORAGE_BUCKET_NAME = 'reportersite'
+    # AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+    # AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+    # STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+    # DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+    # S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
+    # STATIC_URL = S3_URL
+    SECRET_KEY = os.environ['SECRET_KEY']
  
 
